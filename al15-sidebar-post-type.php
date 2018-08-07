@@ -188,18 +188,18 @@ if( function_exists("register_field_group") ) {
 /// Activate/Deactivate plugin /////////////////////////////////////////
 // https://developer.wordpress.org/plugins/the-basics/activation-deactivation-hooks/
 
+register_activation_hook( __FILE__, 'psu_al15sidebar_install' );
 function psu_al15sidebar_install() {
     // trigger our function that registers the custom post type
     psu_al15sidebar_setup_post_type();
     // clear the permalinks after the post type has been registered
     flush_rewrite_rules();
 }
-register_activation_hook( __FILE__, 'psu_al15sidebar_install' );
 
+register_deactivation_hook( __FILE__, 'psu_al15sidebar_deactivation' );
 function psu_al15sidebar_deactivation() {
     // unregister the post type, so the rules are no longer in memory
     unregister_post_type( 'al_sidebar_post' );
     // clear the permalinks to remove our post type's rules from the database
     flush_rewrite_rules();
 }
-register_deactivation_hook( __FILE__, 'psu_al15sidebar_deactivation' );
