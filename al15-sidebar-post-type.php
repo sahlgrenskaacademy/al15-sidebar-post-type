@@ -136,7 +136,7 @@ function psu_al15sidebar_output() {
 if( function_exists("register_field_group") ) {
 	register_field_group(array (
 		'id' => 'psu_al15sidebar_sidebar',
-		'title' => __('SidebarX', 'al15-sidebar'),
+		'title' => __('Sidebar', 'al15-sidebar'),
 		'fields' => array (
 			array (
 				'key' => 'field_55f14b0465ae0',
